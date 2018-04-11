@@ -1,0 +1,22 @@
+body{
+    background:black;
+
+}
+h1{
+    text-align: center;
+    padding: 5%;
+    background:beige;
+
+}
+.square{
+    width: 25%;
+    background:white;
+    float: left;
+    padding-bottom: 22%; 
+    margin : 2%;
+}
+
+#container{
+    width: 700px;
+    margin:0px auto;
+}
