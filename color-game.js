@@ -7,7 +7,7 @@ var colors = [
                 "rgb(200, 34, 223)",
                 "rgb(0, 234, 223)"
             ];
-var pickedColor = colors[3];
+var pickedColor = pickColorFunction();
 document.querySelector("#pickedColor").textContent = pickedColor;
 var message = document.getElementById("message");
 
@@ -17,14 +17,24 @@ for(var i = 0; i < squares.length; i++){
 
     //add event listeners for each square
     squares[i].addEventListener('click',function(){
-        if(pickedColor == this.style.backgroundColor)
-        {
+        if(pickedColor == this.style.backgroundColor){
             message.textContent = "correct";
+            changeColor(pickedColor);
         }
         else{
         this.style.backgroundColor = "black";
         message.textContent = "Try again!";
-    }
+        }
     });
 
+}
+
+function changeColor(color){
+    for(var i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = color;
+    }
+}
+function pickColorFunction(){
+    var randomNum = Math.floor(Math.random() * colors.length);
+    return colors[randomNum];
 }
