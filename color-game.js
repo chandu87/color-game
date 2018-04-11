@@ -7,6 +7,24 @@ var colors = [
                 "rgb(200, 34, 223)",
                 "rgb(0, 234, 223)"
             ];
+var pickedColor = colors[3];
+document.querySelector("#pickedColor").textContent = pickedColor;
+var message = document.getElementById("message");
+
 for(var i = 0; i < squares.length; i++){
+    //loop through all the colors
     squares[i].style.backgroundColor = colors[i];
+
+    //add event listeners for each square
+    squares[i].addEventListener('click',function(){
+        if(pickedColor == this.style.backgroundColor)
+        {
+            message.textContent = "correct";
+        }
+        else{
+        this.style.backgroundColor = "black";
+        message.textContent = "Try again!";
+    }
+    });
+
 }
