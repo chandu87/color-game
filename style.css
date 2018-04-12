@@ -1,14 +1,16 @@
 body{
     background:black;
-    color:white
+    color:white;
+    margin: 0px;
 
 }
 h1{
     text-align: center;
-    padding: 5%;
+    padding: 3%;
     background:beige;
     color:black;    
-
+    margin-bottom:0px;
+    margin-top:0px;
 }
 .square{
     width: 25%;
@@ -27,7 +29,11 @@ h1{
     font-size: 2em;
 }
 #navbar{
-    background: aquamarine;
-    padding:2%;
+    background: white;
+    padding:0.5%;
     color:black;
+    text-align: center;
+}
+#reset,#message{
+    margin-right : 100px;
 }
