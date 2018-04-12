@@ -11,28 +11,32 @@ var hardBtn = document.querySelector("#hardLevel");
 colorDisplay.textContent = pickedColor;
 
 resetBtn.addEventListener('click',function(){
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColorFunction();
-    colorDisplay.textContent = pickedColor;
-    for(var i = 0; i < squares.length; i++){
-        //loop through all the colors
-        squares[i].style.backgroundColor = colors[i];
-    }    
-    message.textContent = "TRY NOW!!";
-    h1.style.backgroundColor = "teal";
+    reset();
 });
 
 easyBtn.addEventListener('click',function(){
     easyBtn.classList.add("selected");
     hardBtn.classList.remove("selected");
     numSquares = 3;
+    reset();
+});
+hardBtn.addEventListener('click',function(){
+    hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+    numSquares = 6;
+    reset();
+
+});
+
+function reset(){
     colors = generateRandomColors(numSquares);
     pickedColor = pickColorFunction();
     colorDisplay.textContent = pickedColor;
     for(var i = 0; i < squares.length; i++){
         //loop through all the colors
         if(colors[i]){
-            squares[i].style.backgroundColor = colors[i];
+        squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "block";
         }
         else{
             squares[i].style.display = "none";
@@ -40,24 +44,7 @@ easyBtn.addEventListener('click',function(){
     }    
     message.textContent = "TRY NOW!!";
     h1.style.backgroundColor = "teal";
-});
-hardBtn.addEventListener('click',function(){
-    hardBtn.classList.add("selected");
-    easyBtn.classList.remove("selected");
-    numSquares = 6;
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColorFunction();
-    colorDisplay.textContent = pickedColor;
-    for(var i = 0; i < squares.length; i++){
-        //loop through all the colors
-        squares[i].style.backgroundColor = colors[i];
-        squares[i].style.display = "block";
-    }    
-    message.textContent = "TRY NOW!!";
-    h1.style.backgroundColor = "teal";
-
-});
-
+}
 for(var i = 0; i < squares.length; i++){
     //loop through all the colors
     squares[i].style.backgroundColor = colors[i];

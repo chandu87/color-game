@@ -61,6 +61,7 @@ button{
     -webkit-transition : all 0.3s;
     -moz-transition: all 0.3s;
     font-size: 1.1em;
+    outline: none;
 }
 button:hover{
     color:white;
