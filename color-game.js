@@ -19,7 +19,7 @@ resetBtn.addEventListener('click',function(){
         squares[i].style.backgroundColor = colors[i];
     }    
     message.textContent = "TRY NOW!!";
-    h1.style.backgroundColor = "beige";
+    h1.style.backgroundColor = "teal";
 });
 
 easyBtn.addEventListener('click',function(){
@@ -39,7 +39,7 @@ easyBtn.addEventListener('click',function(){
         }
     }    
     message.textContent = "TRY NOW!!";
-    h1.style.backgroundColor = "beige";
+    h1.style.backgroundColor = "teal";
 });
 hardBtn.addEventListener('click',function(){
     hardBtn.classList.add("selected");
@@ -54,7 +54,7 @@ hardBtn.addEventListener('click',function(){
         squares[i].style.display = "block";
     }    
     message.textContent = "TRY NOW!!";
-    h1.style.backgroundColor = "beige";
+    h1.style.backgroundColor = "teal";
 
 });
 
