@@ -1,5 +1,6 @@
+var numSquares = 6;
 var squares = document.querySelectorAll(".square");
-var colors = generateRandomColors(6);
+var colors = generateRandomColors(numSquares);
 var pickedColor = pickColorFunction();
 var colorDisplay = document.querySelector("#pickedColor");
 var message = document.getElementById("message");
@@ -10,7 +11,7 @@ var hardBtn = document.querySelector("#hardLevel");
 colorDisplay.textContent = pickedColor;
 
 resetBtn.addEventListener('click',function(){
-    colors = generateRandomColors(6);
+    colors = generateRandomColors(numSquares);
     pickedColor = pickColorFunction();
     colorDisplay.textContent = pickedColor;
     for(var i = 0; i < squares.length; i++){
@@ -21,6 +22,41 @@ resetBtn.addEventListener('click',function(){
     h1.style.backgroundColor = "beige";
 });
 
+easyBtn.addEventListener('click',function(){
+    easyBtn.classList.add("selected");
+    hardBtn.classList.remove("selected");
+    numSquares = 3;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColorFunction();
+    colorDisplay.textContent = pickedColor;
+    for(var i = 0; i < squares.length; i++){
+        //loop through all the colors
+        if(colors[i]){
+            squares[i].style.backgroundColor = colors[i];
+        }
+        else{
+            squares[i].style.display = "none";
+        }
+    }    
+    message.textContent = "TRY NOW!!";
+    h1.style.backgroundColor = "beige";
+});
+hardBtn.addEventListener('click',function(){
+    hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+    numSquares = 6;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColorFunction();
+    colorDisplay.textContent = pickedColor;
+    for(var i = 0; i < squares.length; i++){
+        //loop through all the colors
+        squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "block";
+    }    
+    message.textContent = "TRY NOW!!";
+    h1.style.backgroundColor = "beige";
+
+});
 
 for(var i = 0; i < squares.length; i++){
     //loop through all the colors

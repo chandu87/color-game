@@ -37,3 +37,7 @@ h1{
 #reset,#message{
     margin-right : 100px;
 }
+.selected{
+    background: blue;
+    color:white;
+}
