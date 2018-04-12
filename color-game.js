@@ -6,27 +6,22 @@ var colorDisplay = document.querySelector("#pickedColor");
 var message = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetBtn = document.querySelector("#reset");
-var easyBtn = document.querySelector("#easyLevel");
-var hardBtn = document.querySelector("#hardLevel");
 colorDisplay.textContent = pickedColor;
+var modeBtns = document.querySelectorAll(".difMode");
 
 resetBtn.addEventListener('click',function(){
     reset();
 });
 
-easyBtn.addEventListener('click',function(){
-    easyBtn.classList.add("selected");
-    hardBtn.classList.remove("selected");
-    numSquares = 3;
-    reset();
-});
-hardBtn.addEventListener('click',function(){
-    hardBtn.classList.add("selected");
-    easyBtn.classList.remove("selected");
-    numSquares = 6;
-    reset();
-
-});
+for(var i = 0; i < modeBtns.length; i++){
+    modeBtns[i].addEventListener('click',function(){
+        modeBtns[0].classList.remove("selected");
+        modeBtns[1].classList.remove("selected");
+        this.classList.add("selected");
+        numSquares = this.textContent === "Easy" ? 3 : 6;
+        reset();
+    });
+}
 
 function reset(){
     colors = generateRandomColors(numSquares);
